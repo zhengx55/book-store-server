@@ -4,12 +4,14 @@ import fs from "fs";
 import Router from "koa-router";
 import body from "koa-body";
 import json from "koa-json";
+import globalException from "./GlobalExce";
 
 class RouteLoader {
   app!: Koa;
   static loader: RouteLoader = new RouteLoader();
   init(app: Koa) {
     this.app = app;
+    this.app.use(globalException);
     const rootRouter = this.loadAllRouterWrapper();
     this.app.use(rootRouter.routes());
     this.listen();

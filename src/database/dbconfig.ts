@@ -1,5 +1,3 @@
-import { isString } from "@/utils/helper";
-
 interface DbConfig {
   host: string;
   user: string;

@@ -1,4 +1,4 @@
-import dbconfig from "@/database/dbconfig";
+import dbconfig from "../database/dbconfig";
 import { Dialect } from "sequelize";
 import { Sequelize } from "sequelize-typescript";
 

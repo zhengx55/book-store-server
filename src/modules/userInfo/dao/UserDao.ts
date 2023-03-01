@@ -1,8 +1,8 @@
 import { Sequelize } from "sequelize-typescript";
 import { Op } from "sequelize";
-import { model } from "../defineModel";
+import { model } from "../model";
 
-class UserDaoDefine {
+class UserDao {
   static addUser(userInfo: UserInfo) {
     return model.create(userInfo);
   }
@@ -50,7 +50,7 @@ class UserDaoDefine {
   }
 
   // 聚合查询
-  countUserInfo() {
+  static countUserInfo() {
     return model.findAll({
       raw: true,
       group: "address",
@@ -66,7 +66,7 @@ class UserDaoDefine {
   }
 
   // 分页查询
-  findUserPaginations(offset: number, pageSize: number) {
+  static findUserPaginations(offset: number, pageSize: number) {
     return model.findAll({
       raw: true,
       limit: pageSize,
@@ -83,4 +83,4 @@ export type UserInfo = {
   valid: number;
 };
 
-export const { addUser, findAllUser, findByUsmAndPsw } = UserDaoDefine;
+export const { addUser, findAllUser, findByUsmAndPsw } = UserDao;

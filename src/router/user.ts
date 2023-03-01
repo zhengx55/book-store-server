@@ -1,7 +1,7 @@
 import { Context } from "koa";
 import Router from "koa-router";
 import { success, fail } from "../common/ResHandler";
-import { UserInfo, addUser, findAllUser } from "../dao/UserDaoDefine";
+import { UserInfo, addUser, findAllUser } from "../modules/userInfo/dao/UserDao";
 
 const router = new Router();
 
